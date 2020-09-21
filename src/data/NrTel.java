@@ -11,7 +11,6 @@ public abstract class NrTel implements Comparable<NrTel>, Serializable {
     public String nrTelefon;
 
     public NrTel(String nrTelefon) {
-        //System.out.println("Creating NrTel: " + nrTelefon);
         if (validareNumar(nrTelefon)) {
             this.nrTelefon = nrTelefon;
         }
