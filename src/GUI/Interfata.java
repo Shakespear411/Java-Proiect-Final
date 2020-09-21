@@ -647,8 +647,6 @@ public class Interfata extends javax.swing.JFrame implements Serializable {
                         whereOut.writeObject(saveTo);
                         whereOut.close();
                         whereTo.close();
-                        //System.out.println("fisierul a fost salvat " + acum);
-                        //System.out.println(agenda.colectieContacte);
                         Thread.sleep(timer);
                     } catch (Exception e) {
                         System.out.println("aici" + e);

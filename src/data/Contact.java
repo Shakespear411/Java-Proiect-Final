@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.Locale;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -78,7 +79,6 @@ public class Contact implements Serializable{
     }
 
     public Contact(String nume, String prenume, String dob, NrTel nrTelefon) {
-        //System.out.println("Creating Contact: " + nume + " // " + prenume + " // " + dob + " // " + nrTelefon.toString());
         if (validareNume(nume)) {
             this.nume = nume;
         }
@@ -98,8 +98,6 @@ public class Contact implements Serializable{
     public boolean validareNume(String nume) {
         if (nume.length() < 2) {
             throw new NumeException(nume, "Numele trebuie sa aiba cel putin 2 litere.");
-                            JOptionPane.showMessageDialog(rootPane, "Contact existent!", "EROARE", 0);
-
         }
         if (!isNume(nume)) {
             throw new NumeException(nume, "Nume invalid. Trebuie sa contina litere.");
@@ -157,10 +155,8 @@ public class Contact implements Serializable{
             DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
             try {
-                //System.out.println("Parsing " + dataNastere + " to date");
                 LocalDate d = LocalDate.parse(dataNastere, dt);
             } catch (DateTimeParseException e) {
-                //System.out.println("Prins exceptie :" + e.toString());
                 return false;
             }
             return true;
